@@ -1,0 +1,13 @@
+#summary How to use coverstory
+
+= Introduction =
+
+Coverstory is a GUI tool for analyzing which lines of your code have actually been executed when you run you test your code. It requires a little set up to use effectively. You must make some target changes in your Xcode project and then you have to run [http://developer.apple.com/DOCUMENTATION/Darwin/Reference/ManPages/man1/gcov-3.3.1.html gcov] itself.
+
+
+= Project Settings =
+[
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
