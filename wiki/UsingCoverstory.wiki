@@ -6,7 +6,13 @@ Coverstory is a GUI tool for analyzing which lines of your code have actually be
 
 
 = Project Settings =
-[
+http://coverstory.googlecode.com/svn/site/images/settings.png
+
+To work with Coverstory, first you need to set up your target to work with gcov. This requires turning on "Instrument Program Flow", "Generate Test Coverage Files" and linking with the gcov library.
+
+The EnableGCov.scpt will do this for the current configuration of the current target of the frontmost project.
+
+
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
