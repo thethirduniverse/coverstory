@@ -10,10 +10,26 @@ http://coverstory.googlecode.com/svn/site/images/settings.png
 
 To work with Coverstory, first you need to set up your target to work with gcov. This requires turning on "Instrument Program Flow", "Generate Test Coverage Files" and linking with the gcov library.
 
-The EnableGCov.scpt will do this for the current configuration of the current target of the frontmost project.
+The [http://coverstory.googlecode.com/svn/trunk/EnableGCov.scpt EnableGCov.scpt] will do this for the current configuration of the current target of the frontmost project.
 
+Then build and run your project and exercise the code you wish to profile.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Once you are done you should find a collection of {{{*.gcda}}} and {{{*.gcno}}} files created inside of your build directory. For a project name !TestProj and a configuration named !TestConfig and a target named !TestTarget built for i386, you will find them at:
+
+{{{
+TestProj.xcodeproj
+build/TestProj.build/TestConfig/TestTarget.build/Objects-normal/i386
+}}}
+
+assuming you are using standard build settings.
+
+You then need to run gcov from your project directory, passing it the objects dir as an argument. For a file called main.c that is in sources, you would run:
+
+{{{
+cd SRC_ROOT
+gcov -o build/TestProj.build/TestConfig/TestTarget.build/Objects-normal/i386 main.c
+}}}
+
+where SRC_ROOT is the directory your .xcodeproj file is located in.
+
+This will generate a main.gcov file that you can open and examine in !CoverStory.
