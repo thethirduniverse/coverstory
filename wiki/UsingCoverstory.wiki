@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Coverstory is a GUI tool for analyzing which lines of your code have actually been executed when you run you test your code. It requires a little set up to use effectively. You must make some target changes in your Xcode project and then you have to run [http://developer.apple.com/DOCUMENTATION/Darwin/Reference/ManPages/man1/gcov-3.3.1.html gcov] itself.
+Coverstory is a GUI tool for analyzing which lines of your code have actually been executed when you run you test your code. It requires a little set up to use effectively, you must make some target changes in your Xcode project.
 
 
 = Project Settings =
@@ -24,13 +24,4 @@ build/TestProj.build/TestConfig/TestTarget.build/Objects-normal/i386
 
 assuming you are using standard build settings.
 
-You then need to run gcov from your project directory, passing it the objects dir as an argument. For a file called main.c that is in sources, you would run:
-
-{{{
-cd SRC_ROOT
-gcov -o build/TestProj.build/TestConfig/TestTarget.build/Objects-normal/i386 main.c
-}}}
-
-where SRC_ROOT is the directory your .xcodeproj file is located in.
-
-This will generate a main.gcov file that you can open and examine in !CoverStory.
+You then need to open these files with !CoverStory. You can open individual files to see how the coverage or you can open the the whole build folder with !CoverStory and it will show all coverage data, merging i386 and ppc data runs.
