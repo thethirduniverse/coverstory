@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Normally to get code coverage working in Xcode, you turn on some flags and link to gcov as described here UsingCoverStory. Unfortunately it's not quite so easy using Xcode 3 if you want to link with the 10.4.sdk. The flags work fine, but the libgcov.a library does not. Fear not though, as there is an answer.
+Normally to get code coverage working in Xcode, you turn on some flags and link to gcov as described [http://code.google.com/p/coverstory/wiki/UsingCoverstory here]. Unfortunately it's not quite so easy using Xcode 3 if you want to link with the 10.4.sdk. The flags work fine, but the libgcov.a library does not. Fear not though, as there is an answer.
 
 = Details =
 
