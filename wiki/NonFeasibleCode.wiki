@@ -37,3 +37,6 @@ Some code samples:
      do task z;
    #endif              // COV_NF_END
 }}}
+
+= Xcode Script =
+There is a python script for the Xcode script menu named [http://code.google.com/p/coverstory/source/browse/trunk/Tools/MarkAsCodeCoverageNonFeasible.py MarkAsCodeCoverageNonFeasible] which greatly simplifies marking chunks of code as non-feasible for code coverage. Read the script for installation instructions.
