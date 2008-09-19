@@ -11,7 +11,7 @@ http://coverstory.googlecode.com/svn/site/images/settings.png
 
 To work with Coverstory, first you need to set up your target to work with gcov. This requires turning on "Instrument Program Flow", "Generate Test Coverage Files" and linking with the gcov library.
 
-The [http://coverstory.googlecode.com/svn/trunk/EnableGCov.scpt EnableGCov.scpt] will do this for the current configuration of the current target of the frontmost project.
+The [http://coverstory.googlecode.com/svn/trunk/Tools/EnableGCov.scpt EnableGCov.scpt] will do this for the current configuration of the current target of the frontmost project.
 
 Then build and run your project and exercise the code you wish to profile.
 
