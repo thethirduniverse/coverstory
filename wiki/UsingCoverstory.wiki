@@ -25,3 +25,18 @@ build/TestProj.build/TestConfig/TestTarget.build/Objects-normal/i386
 assuming you are using standard build settings.
 
 You then need to open these files with !CoverStory. You can open individual files to see how the coverage or you can open the the whole build folder with !CoverStory and it will show all coverage data, merging i386 and ppc data runs.
+
+= Export To HTML =
+The "Export To HTML" option in the file menu allows you to export your CoverStory data as HTML. You can do extensive customization on the HTML we produce by replacing the default coverstory.css and coverstory.js files with your own css and js post export. Take a look at the coverstory.js file for an example of adding an element to the default HTML we spit out.
+
+= !AppleScript =
+!CoverStory now has extensive !AppleScript support. One interesting issue is due to [http://openradar.appspot.com/6808327 radar 6808327] you should always call "activate" before calling "open" or else you may run into problems with the files not completely opening before the next step in the script is performed.
+{{{
+tell application "CoverStory"
+  activate
+  set a to open "foo/bar"
+  tell a
+    export to html
+  end
+end
+}}}
