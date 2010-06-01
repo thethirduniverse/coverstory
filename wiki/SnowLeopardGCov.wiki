@@ -1,0 +1,17 @@
+#summary Using Code Coverage on Snow Leopard
+#labels Phase-Deploy
+
+= Introduction =
+
+Code coverage doesn't work well on Snow Leopard with Xcode 3.2.2 with gcc 4.2.1, but you can get it working.
+
+Radar 8049256 "gcov broken on gcc 4.2.1 (Xcode 3.2.2) with inlines in precompiled headers" has been filed
+
+[http://openradar.appspot.com/radar?id=389401 OpenRadar link]
+
+
+= Details =
+
+There appears to be a bug in gcc 4.2.1 that causes gcov to produce bogus data if you have ANY inlines in your precompiled header file. The "easiest" way to get around this for code coverage builds is to turn off precompiled headers, by setting the "Prefix Header" [GCC_PREFIX_HEADER] setting in your project/target to "blank". This may be quite a pain depending on how much your source depends on your pch to actually compile, and it may result in slower compiles. For Google Toolbox For Mac, we still use precompiled headers, but we have defined GTM_CODE_COVERAGE_ON in our code coverage builds, and #ifdef'd out the chunks of our pch files that include headers that have inlines.
+
+The other fix for this is to use gcc 4.0 instead of 4.2.1. This of course means that unless you go with gcc 4.0 for all of your configurations that you will end up running different code in your code-coverage builds vs your non-code-coverage builds.
