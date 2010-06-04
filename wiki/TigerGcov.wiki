@@ -3,4 +3,4 @@
 
 This page is out of date. This information has been consolidated into the Google Toolbox For Mac Wiki.
 
-*[http://code.google.com/p/google-toolbox-for-mac/wiki/TigerGCov Click here to go to the GTM version.]*
+*[http://code.google.com/p/google-toolbox-for-mac/wiki/TigerGcov Click here to go to the GTM version.]*
