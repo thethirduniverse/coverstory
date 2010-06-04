@@ -52,13 +52,13 @@ FILE *fdopen$UNIX2003(int fildes, const char *mode) {
 
 }}}
 
-but you may end up with multiply defined errors if you are cross compiling with gcc4.0 and gcc 4.2.1. I haven't experimented much with this way of doing things.
+or you can grab our version [http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/SnowLeopardGcov/GTM_fdopen2003.c GTM_fdopen2003.c] from [http://code.google.com/p/google-toolbox-for-mac/ Google Toolbox for Mac].
 
 = GCC 4.2.1 iPhone/10.5SDK Development gcov Issue =
 
 The problem with building on the iPhone/10.5SDK is even more "interesting". Normally to set up code coverage on Xcode, you turn on the "Instrument Program Flow" (-fprofile-arcs) and "Generate Test Coverage Files" (-ftest-coverage) flags, and add libgcov (-lgcov). When you build on the iPhone/10.5SDK using gcc 4.2.1, the stock libgcov included with gcc 4.2.1 has references to _vproc_transaction_begin_ and _vproc_transaction_end_. These routines are defined in the 10.6 runtime (crt1.10.6.o) but are not defined in the 10.5 runtime (the iPhone SDKs, at least up to iPhone SDK 3.2, depend on the 10.5 runtime) so you receive the link errors.
 
-To get around this we have built our own version of libgcov that doesn't need _vproc_transaction_begin_ and _vproc_transaction_end_. You can get it [http://coverstory.googlecode.com/files/libgcov_for_LeopardRunTime.zip here]. Should you want to build you own, you can grab the sources for the version of gcc included with Xcode 3.2.2 [http://www.opensource.apple.com/tarballs/gcc/gcc-5659.tar.gz here] and change this [http://www.opensource.apple.com/source/gcc/gcc-5659/gcc/libgcov.c file] so that it doesn't link in the vproc functions. I did this like so:
+To get around this we have built our own version of libgcov that doesn't need _vproc_transaction_begin_ and _vproc_transaction_end_. You can get it [http://coverstory.googlecode.com/files/libgcov_for_LeopardRunTime.zip here]. It is also available as part of [http://code.google.com/p/google-toolbox-for-mac/ Google Toolbox for Mac]  and can be found [http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/SnowLeopardGcov here]. Should you want to build you own, you can grab the sources for the version of gcc included with Xcode 3.2.2 [http://www.opensource.apple.com/tarballs/gcc/gcc-5659.tar.gz here] and change this [http://www.opensource.apple.com/source/gcc/gcc-5659/gcc/libgcov.c file] so that it doesn't link in the vproc functions. I did this like so:
 
 {{{
 #if defined(__APPLE__) && !defined(__STATIC__) && !defined(__ppc__) && !defined(__ppc64__) && !defined(__arm__)
