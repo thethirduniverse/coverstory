@@ -1,4 +1,4 @@
-#summary How to use !CoverStory
+#summary How to use CoverStory
 #labels Phase-Deploy,Featured
 
 = Introduction =
