@@ -15,7 +15,7 @@ With Xcode 4.2 (4C139 aka iOS 5 beta 4) code coverage appears to be working with
   # Link `/Developer/usr/lib/libprofile_rt.dylib` into your app
   # Build and run
 
-and that should be it. It appears to work with precompiled headers on or off. Note that the current version of !CoverStory will give you some warnings about the .gcda and .gcno version numbers, but you can ignore them.
+and that should be it. It appears to work with precompiled headers on or off. Note that the current version of !CoverStory will give you some warnings about the .gcda and .gcno version numbers, but you can ignore them. (http://llvm.org/bugs/show_bug.cgi?id=10502 is one of the issues)
 
 Turning on the `Generate Profiling Code` doesn't appear to function at this time. Feel free to file your own Radars and reference 9596252.
 
