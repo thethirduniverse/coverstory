@@ -1,15 +1,31 @@
-#summary How to use coverstory
+#summary How to use !CoverStory
 #labels Phase-Deploy,Featured
 
 = Introduction =
 
-Coverstory is a GUI tool for analyzing which lines of your code have actually been executed when you run you test your code. It requires a little set up to use effectively, you must make some target changes in your Xcode project.
-
+!CoverStory is a GUI tool for analyzing which lines of your code have actually been executed when you run you test your code. It requires a little set up to use effectively, you must make some target changes in your Xcode project.
 
 = Project Settings =
+
+== Xcode 4.2 with LLVM Compiler ==
+
+With Xcode 4.2 (4C139 aka iOS 5 beta 4) code coverage appears to be working with LLVM. To get it working you need to do the following:
+
+  # Add `-fprofile-arcs` and `-ftest-coverage` to `Other C Flags`
+  # Link `/Developer/usr/lib/libprofile_rt.dylib` into your app
+  # Build and run
+
+and that should be it. It appears to work with precompiled headers on or off. Note that the current version of !CoverStory will give you some warnings about the .gcda and .gcno version numbers, but you can ignore them.
+
+Turning on the `Generate Profiling Code` doesn't appear to function at this time. Feel free to file your own Radars and reference 9596252.
+
+Note that the .gcno and .gcda files will be located beside your object files which by default in Xcode 4 are created in a subpath of `~/Library/Developer/Xcode/DerivedData/`
+
+== Xcode 3 ==
+
 http://coverstory.googlecode.com/svn/site/images/settings.png
 
-To work with Coverstory, first you need to set up your target to work with gcov. This requires turning on "Instrument Program Flow", "Generate Test Coverage Files" and linking with the gcov library.
+To work with !CoverStory, first you need to set up your target to work with gcov. This requires turning on "Instrument Program Flow", "Generate Test Coverage Files" and linking with the gcov library.
 
 The [http://coverstory.googlecode.com/svn/trunk/Tools/EnableGCov.scpt EnableGCov.scpt] will do this for the current configuration of the current target of the frontmost project.
 
@@ -27,7 +43,7 @@ assuming you are using standard build settings.
 You then need to open these files with !CoverStory. You can open individual files to see how the coverage or you can open the the whole build folder with !CoverStory and it will show all coverage data, merging i386 and ppc data runs.
 
 = Export To HTML =
-The "Export To HTML" option in the file menu allows you to export your CoverStory data as HTML. You can do extensive customization on the HTML we produce by replacing the default coverstory.css and coverstory.js files with your own css and js post export. Take a look at the coverstory.js file for an example of adding an element to the default HTML we spit out.
+The "Export To HTML" option in the file menu allows you to export your !CoverStory data as HTML. You can do extensive customization on the HTML we produce by replacing the default coverstory.css and coverstory.js files with your own css and js post export. Take a look at the coverstory.js file for an example of adding an element to the default HTML we spit out.
 
 = !AppleScript =
 !CoverStory now has extensive !AppleScript support. One interesting issue is due to [http://openradar.appspot.com/6808327 radar 6808327] you should always call "activate" before calling "open" or else you may run into problems with the files not completely opening before the next step in the script is performed.
