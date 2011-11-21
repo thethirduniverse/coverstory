@@ -58,4 +58,4 @@ end
 }}}
 
 = Trouble Shooting =
-If you are having problems with coverstory and/or code coverage in general on the Mac, please check out the [http://code.google.com/p/google-toolbox-for-mac/w/list wiki at Google Toolbox For Mac] which lists solutions to several common problems.
+If you are having problems with coverstory and/or code coverage in general on the Mac, please check out the other wiki pages which list solutions to several common problems.
