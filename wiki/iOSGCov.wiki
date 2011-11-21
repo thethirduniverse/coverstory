@@ -18,7 +18,7 @@ ld: symbol(s) not found
 collect2: ld returned 1 exit status
 }}}
 
-  * Trying to use code coverage with iPhone SDK (tested with 4.2) on Snow Leopard generates no gcda files which leads to [http://code.google.com/p/coverstory/ coverstory] showing 0% code coverage.
+  * Trying to use code coverage with iPhone SDK (tested with 4.2) on Snow Leopard generates no gcda files which leads to CoverStory showing 0% code coverage.
 
 
 
