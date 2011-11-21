@@ -37,4 +37,4 @@ FILE *fdopen$UNIX2003(int fildes, const char *mode) {
 
 }}}
 
-or you can grab our version [http://code.google.com/p/google-toolbox-for-mac/source/browse/trunk/SnowLeopardGcov/GTM_fdopen2003.c GTM_fdopen2003.c] from [http://code.google.com/p/google-toolbox-for-mac/ Google Toolbox for Mac].
+or you can grab our version [http://code.google.com/p/coverstory/source/browse/trunk/SnowLeopardGcov/CoverStory_fdopen2003.c].
