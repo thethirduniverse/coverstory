@@ -21,6 +21,8 @@ Turning on the `Generate Profiling Code` doesn't appear to function at this time
 
 Note that the .gcno and .gcda files will be located beside your object files which by default in Xcode 4 are created in a subpath of `~/Library/Developer/Xcode/DerivedData/`
 
+Also, make sure that your app "quits" correctly. For iOS apps this may require adding "UIApplicationExitsOnSuspend = NO" (aka Application does not run in background) to your info.plist 
+
 == Xcode 3 ==
 
 http://coverstory.googlecode.com/svn/site/images/settings.png
