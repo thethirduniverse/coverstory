@@ -7,6 +7,10 @@
 
 = Project Settings =
 
+== Xcode 4.6.3 with LLVM Compiler ==
+
+Code coverage is working on iOS. See the instructions for Xcode 4.2 below.
+
 == Xcode 4.3 with LLVM Compiler ==
 
 Unfortunately it appears that code coverage is broken again for iOS using llvm. libprofile_rt has not been compiled with i386, and doesn't even appear in the iOS SDK.
