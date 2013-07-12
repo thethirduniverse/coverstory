@@ -1,5 +1,7 @@
 #summary Using gcov with Xcode 3 and Tiger.
-#labels Featured
+#labels Deprecated
+
+This page is deprecated and no longer being maintained.
 
 = Introduction =
 
