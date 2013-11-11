@@ -7,6 +7,29 @@
 
 = Project Settings =
 
+== Xcode 5 with LLVM Compiler iOS 7 ==
+
+Code coverage doesn't work well with iOS 7 because iOS 7 does not call any code at the "end" of an app. iOS7 does not:
+  # allow you to register functions with atexit
+  # run any functions marked with the __attribute__((destructor))
+  # run any C++ destructors for global objects
+This seems to also kill off the ability for gcov to call __gcov_flush when the tests are done so it can write out the `*`.gcda files. Note that __gcov_flush must be called in the execution unit that you want the gcda files written out for (i.e. you can't link it in the test bundle, you need to link it in the app bundle).
+
+Assuming you have an app with a test bundle that you want to have coverage run on:
+  # Turn on "Generate Test Coverage Files" (-ftest-coverage) in your build settings for the app.
+  # Turn on "Instrument Program Flow" (-fprofile-arcs) in your build settings for the app.
+  # Add GTMCodeCoverageApp.m/.h to your app sources from [https://code.google.com/p/google-toolbox-for-mac/source/browse/#svn%2Ftrunk%2FUnitTesting here].
+  # Add GTMCodeCoverageTestsST.m or GTMCodeCoverageTestsXC.m (depending on whether you are using !SenTests or XCTests) from [https://code.google.com/p/google-toolbox-for-mac/source/browse/#svn%2Ftrunk%2FUnitTesting here] to your test sources.
+
+You should be able to build and run your tests and generate coverage data (gcda and gcno files).
+
+== Xcode 5 with LLVM Compiler Mac SDK==
+
+Should work fine. 
+
+  # Turn on "Generate Test Coverage Files" (-ftest-coverage) in your build settings for the app.
+  # Turn on "Instrument Program Flow" (-fprofile-arcs) in your build settings for the app.
+
 == Xcode 4.6.3 with LLVM Compiler ==
 
 Code coverage is working on iOS. See the instructions for Xcode 4.2 below.
