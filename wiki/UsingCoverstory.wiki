@@ -7,7 +7,7 @@
 
 = Project Settings =
 
-== Xcode 5 with LLVM Compiler iOS 7 ==
+== Xcode 5 with LLVM Compiler iOS 7 Simulator ==
 
 Code coverage doesn't work well with iOS 7 because iOS 7 does not call any code at the "end" of an app. iOS7 does not:
   # allow you to register functions with atexit
@@ -22,6 +22,8 @@ Assuming you have an app with a test bundle that you want to have coverage run o
   # Add GTMCodeCoverageTestsST.m or GTMCodeCoverageTestsXC.m (depending on whether you are using !SenTests or XCTests) from [https://code.google.com/p/google-toolbox-for-mac/source/browse/#svn%2Ftrunk%2FUnitTesting here] to your test sources.
 
 You should be able to build and run your tests and generate coverage data (gcda and gcno files).
+
+If you use the iOS 6.x Simulators, cover seems to work as it did before.
 
 == Xcode 5 with LLVM Compiler Mac SDK==
 
