@@ -7,6 +7,11 @@
 
 = Project Settings =
 
+== Xcode 6 with  iOS 8 Simulator ==
+Same issues as Xcode 5/iOS 7 except Apple has decided to deprecate the XCTestObserver class which says that the way we are hooking the end of test runs is on its way out unless we can find a replacement.
+
+We've filed a Radar with Apple asking for it back/a replacement. Feel free to do the same :)
+
 == Xcode 5 with LLVM Compiler iOS 7 Simulator ==
 
 Code coverage doesn't work well with iOS 7 because iOS 7 does not call any code at the "end" of an app. iOS7 does not:
